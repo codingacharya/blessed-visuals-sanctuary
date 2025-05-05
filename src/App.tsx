@@ -20,9 +20,9 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/devotionals" element={<Devotionals />} />
-          <Route path="/prayer-journal" element={<PrayerJournal />} />
-          <Route path="/verse-of-the-day" element={<VerseOfTheDay />} />
+          <Route path="/temples" element={<Devotionals />} />
+          <Route path="/puja-offerings" element={<PrayerJournal />} />
+          <Route path="/daily-sloka" element={<VerseOfTheDay />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

@@ -42,7 +42,7 @@ const DevotionalCard = ({ id, title, excerpt, scripture, date, imageUrl }: Devot
       </CardContent>
       <CardFooter className="pt-2">
         <Button asChild className="w-full bg-devotional-600 hover:bg-devotional-700">
-          <Link to={`/devotionals/${id}`}>Read Devotional</Link>
+          <Link to={`/devotionals/${id}`}>Read More</Link>
         </Button>
       </CardFooter>
     </Card>

@@ -6,60 +6,60 @@ import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 
-const DEVOTIONALS = [
+const TEMPLES = [
   {
     id: "1",
-    title: "Finding Peace in Troubled Times",
-    excerpt: "When the world around us seems chaotic, God's peace surpasses all understanding and guards our hearts and minds.",
-    scripture: "Philippians 4:6-7",
+    title: "Tirumala Venkateswara Temple",
+    excerpt: "The richest temple in the world, dedicated to Lord Venkateswara, an incarnation of Lord Vishnu who appeared in Kali Yuga.",
+    scripture: "Skanda Purana",
     date: "May 5, 2025",
-    imageUrl: "https://images.unsplash.com/photo-1470813740244-df37b8c1edcb?q=80&w=800&auto=format&fit=crop",
-    tags: ["peace", "anxiety", "trust"]
+    imageUrl: "https://images.unsplash.com/photo-1621415814107-22ee442edf10?q=80&w=800&auto=format&fit=crop",
+    tags: ["venkateswara", "vishnu", "tirumala"]
   },
   {
     id: "2",
-    title: "The Power of Thankfulness",
-    excerpt: "Gratitude shifts our perspective from what we lack to the abundance that God has provided, transforming our hearts.",
-    scripture: "1 Thessalonians 5:18",
+    title: "Sri Padmavathi Temple",
+    excerpt: "Dedicated to Goddess Padmavathi, consort of Lord Venkateswara, located in Tiruchanur near Tirupati.",
+    scripture: "Padma Purana",
     date: "May 4, 2025",
-    imageUrl: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?q=80&w=800&auto=format&fit=crop",
-    tags: ["gratitude", "thankfulness", "perspective"]
+    imageUrl: "https://images.unsplash.com/photo-1609619385002-f40f1f48a5cc?q=80&w=800&auto=format&fit=crop",
+    tags: ["padmavathi", "goddess", "tiruchanur"]
   },
   {
     id: "3",
-    title: "Walking by Faith",
-    excerpt: "Faith means taking the next step even when you don't see the whole staircase, trusting in God's guidance.",
-    scripture: "2 Corinthians 5:7",
+    title: "Sri Kalahasti Temple",
+    excerpt: "Famous for Rahu-Ketu pooja, this ancient temple is dedicated to Lord Shiva and is one of the Panchabhoota Sthalas.",
+    scripture: "Shiva Purana",
     date: "May 3, 2025",
-    imageUrl: "https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=800&auto=format&fit=crop",
-    tags: ["faith", "trust", "guidance"]
+    imageUrl: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?q=80&w=800&auto=format&fit=crop",
+    tags: ["shiva", "kalahasti", "vayu"]
   },
   {
     id: "4",
-    title: "The Gift of Grace",
-    excerpt: "Grace is the unmerited favor of God that reminds us His love isn't based on our performance but on His character.",
-    scripture: "Ephesians 2:8-9",
+    title: "Govindaraja Swamy Temple",
+    excerpt: "One of the oldest temples in Tirupati, dedicated to Lord Govindaraja, a form of Lord Vishnu, built by the Cholas.",
+    scripture: "Brahma Purana",
     date: "May 2, 2025",
-    imageUrl: "https://images.unsplash.com/photo-1492321936769-b49830bc1d1e?q=80&w=800&auto=format&fit=crop",
-    tags: ["grace", "salvation", "love"]
+    imageUrl: "https://images.unsplash.com/photo-1583216986290-f2444882bd46?q=80&w=800&auto=format&fit=crop",
+    tags: ["govinda", "vishnu", "tirupati"]
   },
   {
     id: "5",
-    title: "Living as Light",
-    excerpt: "As followers of Christ, we are called to shine His light in a world that often feels dark and hopeless.",
-    scripture: "Matthew 5:14-16",
+    title: "Kapila Theertham",
+    excerpt: "The only Shiva temple at the foot of Tirumala hills, featuring a beautiful waterfall and cave temple.",
+    scripture: "Skanda Purana",
     date: "May 1, 2025",
-    imageUrl: "https://images.unsplash.com/photo-1466442929976-97f336a657be?q=80&w=800&auto=format&fit=crop",
-    tags: ["light", "witness", "purpose"]
+    imageUrl: "https://images.unsplash.com/photo-1605759438489-c2f44d0a4522?q=80&w=800&auto=format&fit=crop",
+    tags: ["shiva", "waterfall", "kapila"]
   },
   {
     id: "6",
-    title: "The Joy of the Lord",
-    excerpt: "True joy comes not from our circumstances but from our relationship with God who is our strength.",
-    scripture: "Nehemiah 8:10",
+    title: "Sri Prasanna Venkateswara Swamy Temple",
+    excerpt: "Located at Appalayagunta, this temple is dedicated to Lord Venkateswara in his prasanna (pleased) form.",
+    scripture: "Varaha Purana",
     date: "April 30, 2025",
-    imageUrl: "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?q=80&w=800&auto=format&fit=crop",
-    tags: ["joy", "strength", "perspective"]
+    imageUrl: "https://images.unsplash.com/photo-1585468491047-f02d6ee1caed?q=80&w=800&auto=format&fit=crop",
+    tags: ["venkateswara", "prasanna", "appalayagunta"]
   }
 ];
 
@@ -69,17 +69,17 @@ const Devotionals = () => {
   
   // Extract all unique tags
   const allTags = Array.from(
-    new Set(DEVOTIONALS.flatMap(dev => dev.tags))
+    new Set(TEMPLES.flatMap(temple => temple.tags))
   ).sort();
   
-  // Filter devotionals based on search and selected tag
-  const filteredDevotionals = DEVOTIONALS.filter(dev => {
+  // Filter temples based on search and selected tag
+  const filteredTemples = TEMPLES.filter(temple => {
     const matchesSearch = 
-      dev.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      dev.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
-      dev.scripture.toLowerCase().includes(searchTerm.toLowerCase());
+      temple.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      temple.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      temple.scripture.toLowerCase().includes(searchTerm.toLowerCase());
       
-    const matchesTag = selectedTag ? dev.tags.includes(selectedTag) : true;
+    const matchesTag = selectedTag ? temple.tags.includes(selectedTag) : true;
     
     return matchesSearch && matchesTag;
   });
@@ -93,10 +93,10 @@ const Devotionals = () => {
         <section className="bg-devotional-800 text-white py-16">
           <div className="devotional-container text-center">
             <h1 className="text-4xl md:text-5xl font-cormorant font-bold mb-4">
-              Daily Devotionals
+              Sacred Temples
             </h1>
             <p className="text-xl max-w-2xl mx-auto text-white/90">
-              Explore our collection of devotionals to nurture your spiritual growth and deepen your faith journey.
+              Explore the divine temples of Tirumala Tirupati region and their spiritual significance.
             </p>
           </div>
         </section>
@@ -109,7 +109,7 @@ const Devotionals = () => {
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
                 <Input
                   type="text"
-                  placeholder="Search devotionals..."
+                  placeholder="Search temples..."
                   className="pl-10"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
@@ -145,27 +145,27 @@ const Devotionals = () => {
           </div>
         </section>
         
-        {/* Devotionals Grid */}
+        {/* Temples Grid */}
         <section className="py-16 bg-gray-50">
           <div className="devotional-container">
-            {filteredDevotionals.length === 0 ? (
+            {filteredTemples.length === 0 ? (
               <div className="text-center py-12">
-                <h3 className="text-xl font-semibold text-devotional-800 mb-2">No devotionals found</h3>
+                <h3 className="text-xl font-semibold text-devotional-800 mb-2">No temples found</h3>
                 <p className="text-devotional-600">
                   Try adjusting your search or filter criteria.
                 </p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {filteredDevotionals.map(devotional => (
+                {filteredTemples.map(temple => (
                   <DevotionalCard 
-                    key={devotional.id} 
-                    id={devotional.id}
-                    title={devotional.title}
-                    excerpt={devotional.excerpt}
-                    scripture={devotional.scripture}
-                    date={devotional.date}
-                    imageUrl={devotional.imageUrl}
+                    key={temple.id} 
+                    id={temple.id}
+                    title={temple.title}
+                    excerpt={temple.excerpt}
+                    scripture={temple.scripture}
+                    date={temple.date}
+                    imageUrl={temple.imageUrl}
                   />
                 ))}
               </div>

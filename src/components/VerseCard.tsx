@@ -20,7 +20,7 @@ const VerseCard = ({ verse, reference, background }: VerseCardProps) => {
     } else {
       navigator.clipboard.writeText(`"${verse}" - ${reference}`)
         .then(() => {
-          toast.success("Verse copied to clipboard!");
+          toast.success("Sloka copied to clipboard!");
         })
         .catch(console.error);
     }
