@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,24 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                devotional: {
+                    50: '#f5f7fa',
+                    100: '#eaeff5',
+                    200: '#d0dbe9',
+                    300: '#a6bad3',
+                    400: '#7596b8',
+                    500: '#5277a0',
+                    600: '#3f5e85',
+                    700: '#334c6c',
+                    800: '#2d425a',
+                    900: '#28394e',
+                    950: '#1a2434',
+                },
+                accent: {
+                    'purple': '#9b87f5',
+                    'gold': '#d4af37',
+                }
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,12 +102,20 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+                'fade-in': {
+                    '0%': { opacity: '0' },
+                    '100%': { opacity: '1' }
+                }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'fade-in': 'fade-in 1s ease-out'
+			},
+            backgroundImage: {
+                'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+            }
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
